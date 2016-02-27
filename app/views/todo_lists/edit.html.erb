@@ -1,0 +1,22 @@
+<h1>Editing Todo List</h1>
+
+<%= form_for(@todo_list) do |f| %>
+  <% if @todo_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
+
+      <ul>
+      <% @todo_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Name" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update List", :class => "btn btn-default" %>
+  </div>
+<% end %>

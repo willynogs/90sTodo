@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+    <blink>TODO LISTS</blink>
+    <%= image_tag "spinningearth.gif", :class => "pull-right" %>
+</div>
+
+<ul>
+  <% @todo_lists.each do |todo_list| %>
+      <%= link_to todo_list, :class => "no-link-style inline" do %>
+        <li><h3><%= todo_list.name %></h3></li>
+      <% end %>
+      <%= link_to image_tag("edit.gif", :class => "inline"), edit_todo_list_path(todo_list) %>  
+      <%= link_to image_tag("trash.gif", :class => "trash inline"), todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <br class="clearboth" />
+  <% end %>
+</ul>
+
+<br />
+
+<%= link_to 'New Todo list', new_todo_list_path, :class => "btn btn-primary btn-large" %>

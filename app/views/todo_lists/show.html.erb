@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <div class="list-page-title">
+    <h1><%= @todo_list.name %></h1>
+  </div>
+</div>
+
+<div class="center">
+  <p>
+    <%= render @todo_list.todo_items %>
+    <%= render "todo_items/form" %>
+  </p>
+
+  <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+  <%= link_to 'Back', todo_lists_path %>
+</div>
