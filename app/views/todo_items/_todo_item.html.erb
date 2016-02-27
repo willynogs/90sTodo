@@ -1,8 +1,10 @@
 <% if todo_item.completed? %>
-    <h3 class="completed-item"><strike><%= todo_item.content %></strike></h3>
-    <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: {confirm: "Are you sure?"} %>
+    <h3 class="completed-item inline"><strike><%= todo_item.content %></strike></h3>
+    <%= link_to image_tag("trash.gif", :class => "trash inline"), todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: {confirm: "Are you sure?"} %>
+    <br class="clearboth" />
 <% else %>
-    <h3><%= todo_item.content %></h3>
-    <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: {confirm: "Are you sure?"} %>
-    <%= link_to "Mark as Complete", complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch %>
+    <h3 class="inline"><%= todo_item.content %></h3>
+    <%= link_to image_tag("checkmark.png", :class => " check inline"), complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch %>
+    <%= link_to image_tag("trash.gif", :class => "trash inline"), todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: {confirm: "Are you sure?"} %>
+    <br class="clearboth" />
 <% end %>

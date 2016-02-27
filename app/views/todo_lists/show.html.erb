@@ -12,6 +12,6 @@
     <%= render "todo_items/form" %>
   </p>
 
-  <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+  <%= link_to image_tag("edit.gif", :class => "inline"), edit_todo_list_path(@todo_list) %> |
   <%= link_to 'Back', todo_lists_path %>
 </div>
